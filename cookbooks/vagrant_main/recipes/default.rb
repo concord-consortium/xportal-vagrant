@@ -44,11 +44,11 @@ execute "initialize-xportal-database" do
 end
 
 # setup environment for selenium testing
+# a better approach would be to put a config file in the vagrant users home folder
+#  which is loaded in the by the selenium remote support
 template "environment" do
   path "/etc/environment"
   source "environment.erb"
-  owner "root"
-  group "root"
 end
 
 # execute "setup-xportal-database" do
