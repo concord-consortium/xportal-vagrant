@@ -55,7 +55,7 @@ Vagrant::Config.run do |config|
       #   e.g. if the share is /vagrant, then the root needs to be /vagrant/portal or /vagrant/some/other/folder, etc.
       :cc_rails_app => {
         :checkout => true,
-        :user => "vagrant"
+        :user => "vagrant",
         :portal => {
           :root => "/vagrant/portal",
         }
