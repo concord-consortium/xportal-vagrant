@@ -38,6 +38,8 @@ can access the portal's web interface at http://localhost:4567/.
 
 ## Custom use
 
+### Existing rails portal checkout
+
 If you already have an instance of rigse checked out to your local
 filesystem, you can use it with the vagrant system.
 
@@ -55,6 +57,22 @@ checkout, and change the root to point directly to your share folder:
       :user => "vagrant",
       :portal => {
         :root => "/vagrant",
+        :theme => "xproject",
+        :source_branch => "xproject-dev"
       }
     }
 
+### Custom theme/branch
+
+If you'd like to use a custom theme and/or branch, modify the portal
+config in the Vagrantfile to suit your needs:
+
+    :cc_rails_app => {
+      :checkout => true,
+      :user => "vagrant",
+      :portal => {
+        :root => "/vagrant/portal",
+        :theme => "any_theme",
+        :source_branch => "any_branch"
+      }
+    }

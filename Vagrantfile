@@ -58,6 +58,8 @@ Vagrant::Config.run do |config|
         :user => "vagrant",
         :portal => {
           :root => "/vagrant/portal",
+          :theme => "xproject",
+          :source_branch => "xproject-dev"
         }
       }
     })
