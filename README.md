@@ -1,15 +1,60 @@
+### Intro
 This project lets you use vagrant to run CC's rails app rigse.
 
-After checking out this project you need edit the Vagrantfile so it can find the root of the rails application:
+### Prerequisites
+First, you'll need to have the following installed:
 
-    #Vagrantfile
-    
-    # replace '../rigse' with the path to your rails application
-    # NOTE: symlinks aren't mounted correctly so don't use them
-    config.vm.share_folder("v-root", "/vagrant", "../rigse", :nfs => true)
+#### VirtualBox
 
-Make sure you have the vagrant gem installed, and virtual box.
+You can install the latest from http://www.virtualbox.org/
 
-Then run
+#### Ruby
+
+You can install the latest from http://www.ruby-lang.org/.
+1.8.7 and 1.9.2 are both known to work.
+
+#### Rubygems
+
+You can install the latest from http://rubygems.org/
+
+#### Vagrant gem
+
+You can install the latest via:
+
+    gem install vagrant
+
+### Getting started
+
+Check out this project with git
+
+From within the project directory, simply run:
 
     vagrant up
+
+Vagrant will handle configuring the virtual machine, checking out the
+rigse code, and configuring the rigse code. By default, the rigse code
+will end up in the _vagrant/portal_ directory of this project, and you
+can access the portal's web interface at http://localhost:4567/.
+
+## Custom use
+
+If you already have an instance of rigse checked out to your local
+filesystem, you can use it with the vagrant system.
+
+You'll need to make a couple of changes to the supplied Vagrantfile.
+
+First, change the "/vagrant" share path to point to your local checkout:
+
+    config.vm.share_folder("v-root", "/vagrant", "/some/path/to/rigse", :nfs => true)
+
+Then, change the json parameters to reflect that you don't need a
+checkout, and change the root to point directly to your share folder:
+
+    :cc_rails_app => {
+      :checkout => false,
+      :user => "vagrant",
+      :portal => {
+        :root => "/vagrant",
+      }
+    }
+
