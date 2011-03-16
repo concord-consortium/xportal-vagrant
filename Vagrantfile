@@ -23,7 +23,7 @@ Vagrant::Config.run do |config|
   # via the IP.
   config.vm.network "33.33.33.10"
 
-  config.vm.share_folder("v-root", "/vagrant", "../rigse", :nfs => true)
+  config.vm.share_folder("v-root", "/vagrant", "./vagrant", :nfs => true)
   config.vm.share_folder("chef-root", "/chef", "./chef")
 
   # Forward a port from the guest to the host, which allows for outside
@@ -37,7 +37,8 @@ Vagrant::Config.run do |config|
     chef.client_key_path = "/chef/client.pem"
 
     # Tell chef what recipe to run.
-    chef.add_role("rails_portal_server_vagrant")
+    chef.add_role("mysql_server")
+    chef.add_role("rails_portal_server")
 
     # Customize recipes
     chef.json.merge!({ 
@@ -52,10 +53,12 @@ Vagrant::Config.run do |config|
       # NOTE: if :root is the same path as a shared folder, checkout must be false or it will fail!
       # If you want to check out the code into a shared folder, make sure :root is a subfolder of the shared folder root
       #   e.g. if the share is /vagrant, then the root needs to be /vagrant/portal or /vagrant/some/other/folder, etc.
-      :cc_rails_portal => {
-        :root => "/vagrant",
-        :checkout => "false",
+      :cc_rails_app => {
+        :checkout => true,
         :user => "vagrant"
+        :portal => {
+          :root => "/vagrant/portal",
+        }
       }
     })
   end

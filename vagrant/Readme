@@ -1,0 +1,3 @@
+Under the default settings, the portal code will be checked out into a portal folder within this folder.
+
+Any files in this folder will be accessible to the VM.
