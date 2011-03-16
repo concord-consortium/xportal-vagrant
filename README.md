@@ -1,29 +1,29 @@
-### Intro
+# Getting Started
 This project lets you use vagrant to run CC's rails app rigse.
 
-### Prerequisites
+## Prerequisites
 First, you'll need to have the following installed:
 
-#### VirtualBox
+### VirtualBox
 
 You can install the latest from http://www.virtualbox.org/
 
-#### Ruby
+### Ruby
 
 You can install the latest from http://www.ruby-lang.org/.
 1.8.7 and 1.9.2 are both known to work.
 
-#### Rubygems
+### Rubygems
 
 You can install the latest from http://rubygems.org/
 
-#### Vagrant gem
+### Vagrant gem
 
 You can install the latest via:
 
     gem install vagrant
 
-### Getting started
+## Firing it up
 
 Check out this project with git
 
