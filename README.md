@@ -38,6 +38,13 @@ can access the portal's web interface at http://localhost:4567/.
 
 ## Custom use
 
+### Configuring for selenium testing
+
+See this gist: https://gist.github.com/849756
+
+You'll need to set the environment variables HOST_OF_APP_BEING_TESTED
+and HOST_OF_SELENIUM_BROWSER_SERVER on the vm.
+
 ### Existing rails portal checkout
 
 If you already have an instance of rigse checked out to your local

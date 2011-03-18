@@ -44,10 +44,6 @@ Vagrant::Config.run do |config|
     chef.json.merge!({ 
       :mysql => { :server_root_password => "" },
       :rails => { :environment => "development"},
-      :selenium => {
-        :server_host => '10.0.2.2',                   # this can probably be determined some how
-        :app_being_tested_host => config.vm.network_options[1][:ip] # this could also probably be set as a default somewhere
-      },
       # root is the filesystem location in which the portal code resides.
       # if checkout is true, a new copy of the code will be cloned from git.
       # NOTE: if :root is the same path as a shared folder, checkout must be false or it will fail!
