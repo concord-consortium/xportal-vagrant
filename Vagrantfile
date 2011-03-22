@@ -44,6 +44,7 @@ Vagrant::Config.run do |config|
     chef.json.merge!({ 
       :mysql => { :server_root_password => "" },
       :rails => { :environment => "development"},
+      :ruby => { :use_existing_ruby => false},
       # root is the filesystem location in which the portal code resides.
       # if checkout is true, a new copy of the code will be cloned from git.
       # NOTE: if :root is the same path as a shared folder, checkout must be false or it will fail!
